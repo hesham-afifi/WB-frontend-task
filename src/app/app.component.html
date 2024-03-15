@@ -1,20 +1,149 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div class="d-flex min-vh-100">
+  <!-- sidenav -->
+  <div
+    class="d-flex flex-column flex-shrink-0 p-2 min-vh-100"
+    style="width: 80px"
+  >
+    <a
+      href="#"
+      class="d-flex justify-content-center align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none"
+    >
+      <img
+        src="assets/images/management.png"
+        alt=""
+        width="60px"
+        height="60px"
+      />
+    </a>
+    <hr />
+    <ul class="nav nav-pills flex-column align-items-center h-100">
+      <li class="nav-item">
+        <a href="#" class="nav-link active" aria-current="page">
+          <span class="material-icons"> home </span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link">
+          <span class="material-icons"> people </span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link">
+          <span class="material-icons"> analytics </span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link">
+          <span class="material-icons"> shield </span>
+        </a>
+      </li>
+      <li class="nav-item mt-auto">
+        <button class="nav-link">
+          <span class="material-icons"> translate </span>
+        </button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link">
+          <span class="material-icons"> dark_mode </span>
+          <span *ngIf="false" class="material-icons"> light_mode </span>
+        </button>
+      </li>
+    </ul>
+  </div>
 
+  <!-- main content -->
+
+  <div class="container-fluid my-5">
+    <div class="mb-3">
+      <div class="row">
+        <div class="col-md-5">
+          <input type="text" class="form-control" placeholder="Search..." />
+        </div>
+        <div class="col-md-4">
+          <div class="d-flex">
+            <label for="dateFilter" class="font-weight-bold mb-0 mt-2 mx-2"
+              >Filter:
+            </label>
+            <input
+              id="dateFilter"
+              type="text"
+              placeholder="Daterangepicker"
+              class="form-control"
+              bsDaterangepicker
+            />
+          </div>
+        </div>
+
+        <div class="col-md-1 text-right">
+          <div class="dropdown">
+            <button class="btn btn-light" type="button">
+              <span class="material-icons">more_vert</span>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <button class="dropdown-item" data-action="bulk-delete">
+                <span class="material-icons">delete</span>
+                <span class="mx-2">Delete</span>
+              </button>
+              <button class="dropdown-item" data-action="bulk-block">
+                <span class="material-icons">lock</span>
+                <span class="mx-2">Block</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-2">
+          <button class="btn btn-primary">Add new</button>
+        </div>
+      </div>
+    </div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th><input type="checkbox" id="selectAll" /></th>
+          <th></th>
+          <th>EMAIL</th>
+          <th>CITY</th>
+          <th>PHONE</th>
+          <th>birthDate</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]">
+          <td class="align-middle"><input type="checkbox" name="record" /></td>
+          <td>
+            <div class="d-flex">
+              <img
+                src="https://robohash.org/Terry.png?set=set4"
+                alt=""
+                class="rounded-circle"
+                width="50px"
+                height="50px"
+              />
+
+              <div class="d-flex flex-column justify-content-end mx-2">
+                <p class="font-weight-bold mb-0">Angle E. Swift</p>
+                <p class="text-muted mb-0">Help Desk Operator (title)</p>
+              </div>
+            </div>
+          </td>
+          <td class="align-middle">atuny0@sohu.com</td>
+          <td class="align-middle">Washington</td>
+          <td class="align-middle">+63 791 675 8914</td>
+          <td class="align-middle">2000-12-25</td>
+          <td class="align-middle">
+            <div class="d-flex justify-content-around">
+              <button class="btn btn-sm btn-light">
+                <span class="material-icons text-info">edit</span>
+              </button>
+              <button class="btn btn-sm btn-light">
+                <span class="material-icons text-danger">delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
