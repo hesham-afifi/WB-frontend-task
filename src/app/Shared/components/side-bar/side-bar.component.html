@@ -1,0 +1,57 @@
+<div class="d-flex">
+  <div
+    class="d-flex flex-column flex-shrink-0 p-2 min-vh-100"
+    style="width: 80px"
+  >
+    <a
+      href="#"
+      class="d-flex justify-content-center align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none"
+    >
+      <img
+        src="assets/images/management.png"
+        alt=""
+        width="60px"
+        height="60px"
+      />
+    </a>
+    <hr />
+    <ul class="nav nav-pills flex-column align-items-center h-100">
+      <li class="nav-item">
+        <a
+          routerLink="/"
+          [routerLinkActiveOptions]="{ exact: true }"
+          routerLinkActive="active"
+          class="nav-link"
+        >
+          <span class="material-icons"> home </span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/users" routerLinkActive="active" class="nav-link">
+          <span class="material-icons"> people </span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/analytics" routerLinkActive="active" class="nav-link">
+          <span class="material-icons"> analytics </span>
+        </a>
+      </li>
+      <li class="nav-item flex-grow-1">
+        <a href="#" class="nav-link">
+          <span class="material-icons"> shield </span>
+        </a>
+      </li>
+      <li class="nav-item mt-auto">
+        <button class="nav-link">
+          <span class="material-icons"> translate </span>
+        </button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link">
+          <span class="material-icons"> dark_mode </span>
+          <span *ngIf="false" class="material-icons"> light_mode </span>
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,78 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><input type="checkbox" id="selectAll" /></th>
+      <th></th>
+      <th>EMAIL</th>
+      <th>CITY</th>
+      <th>PHONE</th>
+      <th>birthDate</th>
+      <th>ACTIONS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of getPaginatedUsers()">
+      <td class="align-middle"><input type="checkbox" name="record" /></td>
+      <td>
+        <div class="d-flex">
+          <img
+            src="{{ user.image }}"
+            alt=""
+            class="rounded-circle"
+            width="50px"
+            height="50px"
+          />
+
+          <div class="d-flex flex-column justify-content-end mx-2">
+            <p class="font-weight-bold mb-0">
+              {{ user.firstName | appConcat : user.lastName }}
+            </p>
+            <p class="text-muted mb-0">{{ user.title }}</p>
+          </div>
+        </div>
+      </td>
+      <td class="align-middle">{{ user.email }}</td>
+      <td class="align-middle">{{ user.city }}</td>
+      <td class="align-middle">{{ user.phone }}</td>
+      <td class="align-middle">{{ user.birthDate }}</td>
+      <td class="align-middle">
+        <div class="d-flex justify-content-around">
+          <button class="btn btn-sm btn-light">
+            <span class="material-icons text-info">edit</span>
+          </button>
+
+          <app-modal [handle]="deleteUser" [parameter]="user.id" [buttonText]="'Delete'">
+            Are You Sure That You Want To Delete This Item ?
+          </app-modal>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<nav aria-label="Page navigation example" class="d-flex justify-content-center">
+  <ul class="pagination">
+    <li class="page-item">
+      <button
+        class="page-link"
+        aria-label="Previous"
+        (click)="onPageChange(currentPage - 1)"
+      >
+        <span aria-hidden="true">&laquo;</span>
+      </button>
+    </li>
+    <li class="page-item" *ngFor="let pageNumber of getPageNumbers()">
+      <button class="page-link" (click)="onPageChange(pageNumber)">
+        {{ pageNumber }}
+      </button>
+    </li>
+    <li class="page-item">
+      <button
+        class="page-link"
+        aria-label="Next"
+        (click)="onPageChange(currentPage + 1)"
+      >
+        <span aria-hidden="true">&raquo;</span>
+      </button>
+    </li>
+  </ul>
+</nav>
