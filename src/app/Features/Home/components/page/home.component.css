@@ -1,0 +1,10 @@
+.userpermision__container {
+  width: 45%;
+  margin: auto;
+}
+
+@media screen and (max-width: 575px) {
+  .userpermision__container {
+    width: 100%;
+  }
+}

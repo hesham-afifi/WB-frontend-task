@@ -1,0 +1,23 @@
+<div class="d-flex justify-content-center align-items-center">
+  <h4>BirthDates Analysis</h4>
+</div>
+<div *ngIf="!birthDates">
+  <app-loading-spinner></app-loading-spinner>
+</div>
+<div class="charContainer" *ngIf="birthDates">
+  <app-google-chart
+    [data]="birthDates"
+    [type]="'ColumnChart'"
+    [options]="chartOptions"
+  ></app-google-chart>
+  <app-google-chart
+    [data]="birthDates"
+    [type]="'BarChart'"
+    [options]="chartOptions"
+  ></app-google-chart>
+  <app-google-chart
+    [data]="birthDates"
+    [type]="'LineChart'"
+    [options]="chartOptions"
+  ></app-google-chart>
+</div>
