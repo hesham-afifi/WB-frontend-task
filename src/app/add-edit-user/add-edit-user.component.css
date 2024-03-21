@@ -1,0 +1,17 @@
+.dark-mode * {
+    background-color: #222; 
+    color: #fff;
+}
+.arLang * {
+    direction: rtl;
+}
+
+.form-group input[type="date"]::-webkit-calendar-picker-indicator {
+    background-color: white;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+label {
+    width: 100%;
+}

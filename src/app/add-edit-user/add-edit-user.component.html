@@ -1,0 +1,37 @@
+<div [class]="isDarkMode ? 'dark-mode' : !isLang ? 'arLang' : ''" >
+  <div class="modal-header">
+    <h4 class="modal-title" *ngIf="isLang ">{{userData.id > 0 ? 'Edit User' : 'Add New User'}}</h4>
+    <h4 class="modal-title" *ngIf="!isLang ">{{userData.id > 0 ? 'تعديل بيانات المستخدم' : 'اضافة مستخدم جديد'}}</h4>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="userForm" (ngSubmit)="submit()">
+      <div class="form-group">
+        <label [class]="isLang ? 'text-left' : 'text-right'" for="firstName">{{isLang ? 'First Name' : 'الأسم الاول'}}</label>
+        <input type="text" class="form-control" id="firstName" formControlName="firstName">
+      </div>
+      <div class="form-group">
+        <label [class]="isLang ? 'text-left' : 'text-right'" for="lastName">{{isLang ? 'Last Name' : 'الأسم الاخير'}}</label>
+        <input type="text" class="form-control" id="lastName" formControlName="lastName">
+      </div>
+      <div class="form-group">
+        <label [class]="isLang ? 'text-left' : 'text-right'" for="phone">{{isLang ? 'PHONE' : 'الهاتف'}}</label>
+        <input type="text" class="form-control" id="phone" formControlName="phone">
+      </div>
+      <div class="form-group">
+        <label [class]="isLang ? 'text-left' : 'text-right'" for="email">{{isLang ? 'Email' : 'البريد الإلكتروني'}}</label>
+        <input type="email" class="form-control" id="email" formControlName="email">
+      </div>
+      <div class="form-group">
+        <label [class]="isLang ? 'text-left' : 'text-right'" for="birthdate">{{isLang ? 'Birthdate' : 'تاريخ الميلاد'}}</label>
+        <input type="date" class="form-control" id="birthdate" formControlName="birthDate">
+      </div>
+      <div [class]="isLang ? 'text-left' : 'text-right'">
+        <button type="submit" class="btn btn-primary" *ngIf="isLang">{{userData.id > 0 ? 'Update' : 'Save'}}</button>
+        <button type="submit" class="btn btn-primary" *ngIf="!isLang">{{userData.id > 0 ? 'تعديل' : 'حفظ'}}</button>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="bsModalRef.hide()">{{isLang ? 'Close' : 'إغلاق'}}</button>
+  </div>
+</div>
